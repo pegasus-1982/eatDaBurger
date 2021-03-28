@@ -1,0 +1,88 @@
+<div class="container-md" id="containerBackground">
+
+  
+<div class="row-12">
+
+  <h1>Eat Da Burger!</h1>
+
+  <h2>Add burgers to the menu, and devour them all!</h2>
+
+</div>
+ 
+
+<div class="row align-items-center">
+  <div class="col">
+
+      
+          
+      <h2>Add a Burger</h2>
+
+      <img src="burgerLogo1.png" id="logo">
+
+      <form class="create-form">
+
+        <div class="form-group">
+          <label for="ca">Burger Name:</label>
+          <input type="text" id="ca" name="name">
+        </div>
+
+        <div class="form-group">
+          <label for="sleepy">Status:</label><br>
+          <input type="radio" name="sleepy" value="1" checked> Add burger to menu<br>
+          {{!-- <input type="radio" name="sleepy" value="0"> Devour --}}
+        </div>
+
+        <button type="submit">Add Burger</button>
+      </form>
+
+  </div>
+  
+  {{!-- ------------------------------------- --}}
+
+  <div class="col" id="burgerMenu">
+    
+    <div class="row">
+      <h2>Burger Menu!</h2>
+    </div>
+
+
+    <div class="row">
+      <ul>
+        {{#each cats}}
+          {{#if sleepy}}
+            {{> cats/cat-block sleep=false}}
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+    
+
+    
+
+  </div>
+
+  {{!-- ------------------------------------- --}}
+
+  <div class="col" id="devouredSection">
+    
+    <div class="row">
+      <h2>Devoured Burgers</h2>
+    </div>
+
+    <div class="row">
+      <ul>
+        {{#each cats}}
+          {{#unless sleepy}}
+            {{> cats/cat-block sleep=true}}
+          {{/unless}}
+        {{/each}}
+      </ul>
+
+    </div>
+
+    
+
+  </div>
+
+
+</div>
